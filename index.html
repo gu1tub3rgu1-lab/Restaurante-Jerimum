@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerimum - Cardápio Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para garantir que o topo fique limpo e sem o laranja de fundo */
+        .header-clean {
+            background: white;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .header-clean img {
+            max-width: 90px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .header-clean h1 {
+            font-family: 'Playfair Display', serif;
+            color: #E67E22;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        /* Espaçamento para o conteúdo não bater no rodapé fixo */
+        body { 
+            background-color: #f8f9fa;
+            padding-bottom: 120px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-clean">
+    <div class="container header-flex">
+        <h1 class="brand">Jerimum</h1>
+        <img src="img/Logo.png" alt="Logo Jerimum" class="logo-img">
+    </div>
+</header>
+
+    <main class="container" id="menu-principal">
+        <div style="text-align: center; padding: 50px; color: #999;">
+            Carregando cardápio...
+        </div>
+    </main>
+
+    <footer class="resumo-barra">
+        <div class="container barra-content">
+            <div class="info-pedido">
+                <span id="resumo-texto">Selecione o tamanho...</span>
+                <span class="total-destaque" id="valor-total">R$ 0,00</span>
+            </div>
+            <button class="btn-finalizar" onclick="finalizarPedido()">Finalizar</button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Garante que a renderização aconteça assim que a página carregar
+        window.addEventListener('load', () => {
+            if (typeof renderizarCardapio === 'function') {
+                renderizarCardapio();
+            }
+        });
+    </script>
+    <header class="header-clean">
+    <div class="container header-flex">
+        <h1 class="brand">Jerimum</h1>
+        <img src="img/Logo.png" alt="Logo Jerimum" class="logo-img" onclick="abrirLoginAdmin()" style="cursor: pointer;">
+    </div>
+</header>
+
+<div id="modalLogin" class="modal-admin" style="display: none;">
+    <div class="modal-content">
+        <h3>Acesso Restrito</h3>
+        <input type="email" id="emailAdmin" placeholder="Seu e-mail">
+        <input type="password" id="senhaAdmin" placeholder="Sua senha">
+        <div class="modal-botoes">
+            <button onclick="verificarAcesso()" class="btn-entrar">Entrar</button>
+            <button onclick="fecharLoginAdmin()" class="btn-cancelar">Cancelar</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
