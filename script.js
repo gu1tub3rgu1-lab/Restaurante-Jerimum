@@ -198,7 +198,7 @@ function finalizarPedido() {
                 `*Total:* R$ ${pedido.total.toFixed(2)}%0A` +
                 `_Não realizamos entregas._`;
 
-    window.open(`https://wa.me/5599999999999?text=${msg}`);
+    window.open(`https://wa.me/5531982080479?text=${msg}`);
 }
 
 /* ==========================================================================
@@ -226,4 +226,5 @@ function verificarAcesso() {
 }
 
 // Inicializa o cardapio ao carregar a página
+
 document.addEventListener('DOMContentLoaded', renderizarCardapio);
